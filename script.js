@@ -24,7 +24,7 @@ startBtn.onclick = () => {
   setTimeout(() => {
     landing.style.display = "none";
     app.classList.add("show");
-  }, 800);
+  }, 600);
 };
 
 // ======= Core Emotions & Verses =======

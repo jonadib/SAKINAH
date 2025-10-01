@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sakinah</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Cairo:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Landing screen -->
+  <div id="landing" class="landing-screen">
+    <div class="landing-content">
+      <div class="logo">س</div>
+      <h1 class="title">Sakinah</h1>
+      <p class="tagline">Find peace through Qur'an</p>
+      <button class="btn primary" id="startBtn">Start</button>
+    </div>
+  </div>
+
+  <!-- Main app -->
+  <div id="app" class="wrap hidden">
+    <header>
+      <div class="brand">
+        <div class="logo">س</div>
+        <div>
+          <h1>Sakinah</h1>
+          <p class="lead small">Find a Qur'an verse for your thought</p>
+        </div>
+      </div>
+     
+    </header>
+
+    <div class="card">
+      <strong>Pick your thought</strong>
+      <div class="mood-grid" id="moodGrid"></div>
+
+      <div class="verse-area">
+        <div class="verse-card card" id="verseCard">
+          <div id="verseArabic" class="arabic">Select a mood to see a verse.</div>
+          <div id="verseTrans" class="trans small">Translation will appear here.</div>
+          <div class="ref" id="verseRef"></div>
+
+          <div class="controls">
+            <button class="btn primary" id="copyBtn">Copy translation</button>
+            <button class="btn" id="toggleTransBtn">Toggle translation</button>
+            <button class="btn" id="favBtn">♡ Save favorite</button>
+            <button class="btn" id="shareBtn">Share</button>
+          </div>
+        </div>
+
+        <aside class="side card">
+          <div><strong>Favorites</strong> <span class="small muted">(saved in browser)</span></div>
+          <div class="favorites" id="favoritesList">
+            <div class="muted small">No favorites yet.</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>

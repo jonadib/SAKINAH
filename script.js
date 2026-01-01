@@ -12,6 +12,7 @@ const copyBtn = document.getElementById("copyBtn");
 const toggleTransBtn = document.getElementById("toggleTransBtn");
 const favBtn = document.getElementById("favBtn");
 const favoritesList = document.getElementById("favoritesList");
+const shareBtn = document.getElementById("shareBtn");
 const copySupportBtn = document.getElementById("copySupportBtn");
 
 let currentMood = null;
@@ -347,6 +348,20 @@ favBtn.onclick = () => {
   favs.push(currentVerse);
   localStorage.setItem("favorites", JSON.stringify(favs));
   renderFavorites();
+};
+
+// ======= Share (Mobile + Facebook) =======
+shareBtn.onclick = () => {
+  if (!currentVerse) return alert("Pick an emotion first!");
+
+  const text = `${currentVerse.arabic}\n${currentVerse.translation}\n${currentVerse.reference}`;
+
+  if (navigator.share) {
+    navigator.share({ text }).catch(err => console.log("Share failed:", err));
+  } else {
+    const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=&quote=${encodeURIComponent(text)}`;
+    window.open(fbUrl, "_blank", "width=600,height=400");
+  }
 };
 
 // ======= Copy Support Number =======

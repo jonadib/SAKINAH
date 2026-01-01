@@ -454,4 +454,21 @@ header .lead {
     width: 100%;
     min-width: 0;
   }
+
+  .verse-card .controls {
+    flex-wrap: nowrap;
+    /* Prevent stacking */
+    gap: 6px;
+    padding-top: 15px;
+  }
+
+  .verse-card .controls .btn {
+    flex: 1;
+    padding: 8px 4px;
+    /* More compact */
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }

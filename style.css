@@ -39,7 +39,7 @@ body {
 #app {
   padding: 20px;
   width: 100%;
-  max-width: 900px;
+  max-width: 1200px;
 }
 
 /* ========== Landing Screen ========== */
@@ -121,7 +121,7 @@ body {
 /* ========== Main App ========== */
 #app {
   width: 100%;
-  max-width: 900px;
+  max-width: 1200px;
   transform: translateY(50px);
   opacity: 0;
   transition: all 0.8s ease;
@@ -226,10 +226,11 @@ header .lead {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  align-items: stretch;
 }
 
 .verse-card {
-  flex: 2;
+  flex: 3;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -268,8 +269,8 @@ header .lead {
 
 /* ========== Favorites Sidebar ========== */
 .side {
-  flex: 1;
-  min-width: 200px;
+  flex: 1.2;
+  min-width: 250px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -339,29 +340,21 @@ header .lead {
   font-weight: 700;
 }
 
-/* ========== Tribute Section ========== */
-.side-row {
-  display: flex;
-  gap: 15px;
-  align-items: stretch;
-}
-
-.side-row>.card {
-  flex: 1;
-  margin-bottom: 0;
-}
-
 .card.small-size {
   padding: 12px;
 }
 
+/* ========== Tribute Section ========== */
 .tribute-card {
+  flex: 1.2;
+  min-width: 250px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-bottom: 20px;
 }
 
-.tribute-card.small-size strong {
+.tribute-card strong {
   font-size: 13px;
 }
 
@@ -424,9 +417,22 @@ header .lead {
   padding: 4px 10px;
 }
 
-/* Responsive side-row */
-@media (max-width: 600px) {
-  .side-row {
+
+/* Responsive Layout */
+@media (max-width: 900px) {
+  #app {
+    max-width: 600px;
+  }
+
+  .verse-area {
     flex-direction: column;
+  }
+
+  .verse-card,
+  .side,
+  .tribute-card {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
   }
 }

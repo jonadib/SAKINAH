@@ -12,7 +12,6 @@ const copyBtn = document.getElementById("copyBtn");
 const toggleTransBtn = document.getElementById("toggleTransBtn");
 const favBtn = document.getElementById("favBtn");
 const favoritesList = document.getElementById("favoritesList");
-const shareBtn = document.getElementById("shareBtn");
 const copySupportBtn = document.getElementById("copySupportBtn");
 
 let currentMood = null;
@@ -348,39 +347,6 @@ favBtn.onclick = () => {
   favs.push(currentVerse);
   localStorage.setItem("favorites", JSON.stringify(favs));
   renderFavorites();
-};
-
-// ======= Share (Native Share API) =======
-shareBtn.onclick = async () => {
-  if (!currentVerse) return alert("Pick a mood first!");
-
-  const shareText = `${currentVerse.arabic}\n\n${currentVerse.translation}\n\n— ${currentVerse.reference}\n\nShared via Sakinah`;
-  const shareData = {
-    title: "Sakinah - Verse for the Heart",
-    text: shareText,
-    url: window.location.href
-  };
-
-  try {
-    if (navigator.share) {
-      await navigator.share(shareData);
-    } else {
-      // Fallback to Facebook for browsers without native share
-      const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(shareText)}`;
-      window.open(fbUrl, "_blank", "width=600,height=400");
-    }
-  } catch (err) {
-    if (err.name !== 'AbortError') {
-      console.error("Share failed:", err);
-      // If native share fails, try to copy to clipboard as final fallback
-      try {
-        await navigator.clipboard.writeText(shareText);
-        alert("Share failed, but the verse has been copied to your clipboard!");
-      } catch (clipboardErr) {
-        alert("Sharing is not supported on this browser.");
-      }
-    }
-  }
 };
 
 // ======= Copy Support Number =======

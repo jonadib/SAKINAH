@@ -306,13 +306,14 @@ header .lead {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #222;
-  border: 1px solid #333;
-  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 6px 10px;
   border-radius: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-dark);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-top: 8px;
 }
 
 .btn.small-btn {
@@ -350,14 +351,14 @@ header .lead {
   margin-bottom: 0;
 }
 
+.card.small-size {
+  padding: 12px;
+}
+
 .tribute-card {
   display: flex;
   flex-direction: column;
   gap: 8px;
-}
-
-.tribute-card.small-size {
-  padding: 12px;
 }
 
 .tribute-card.small-size strong {

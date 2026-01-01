@@ -1,16 +1,19 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sakinah</title>
-  
+
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Cairo:wght@400;600&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Cairo:wght@400;600&display=swap"
+    rel="stylesheet">
+
   <!-- CSS -->
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <!-- Landing screen -->
   <div id="landing" class="landing-screen">
@@ -32,7 +35,7 @@
           <p class="lead small">Find a Qur'an verse for your thought</p>
         </div>
       </div>
-     
+
     </header>
 
     <div class="card">
@@ -53,18 +56,40 @@
           </div>
         </div>
 
-        <aside class="side card">
-          <div><strong>Favorites</strong> <span class="small muted">(saved in browser)</span></div>
-          <div class="favorites" id="favoritesList">
-            <div class="muted small">No favorites yet.</div>
+        <aside class="side">
+          <div class="card">
+            <div><strong>Favorites</strong> <span class="small muted">(saved in browser)</span></div>
+            <div class="favorites" id="favoritesList">
+              <div class="muted small">No favorites yet.</div>
+            </div>
+          </div>
+
+          <div class="side-row">
+            <div class="card support-card">
+              <div><strong>Buy me a coffee</strong> ☕</div>
+              <p class="small muted" style="margin: 8px 0;">Support code with a small gesture.</p>
+            </div>
+
+            <div class="card tribute-card small-size">
+              <strong>A Tribute to Osman Hadi</strong>
+              <img src="osman.png" alt="Osman Hadi" class="tribute-img">
+              <div class="tribute-content">
+                <p class="small-title">Who was Osman Hadi?</p>
+                <div class="bio-scroll">
+
+                </div>
+                <a href="https://shaheedhadiarchive.com/" target="_blank" class="btn small-btn more-btn">More</a>
+              </div>
+            </div>
           </div>
         </aside>
       </div>
     </div>
   </div>
+  </div>
 
   <!-- JS -->
-  <script src="./script.js"></script>
+  <script src="script.js"></script>
 </body>
-</html>
 
+</html>

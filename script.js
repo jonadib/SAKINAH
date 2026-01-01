@@ -12,7 +12,6 @@ const copyBtn = document.getElementById("copyBtn");
 const toggleTransBtn = document.getElementById("toggleTransBtn");
 const favBtn = document.getElementById("favBtn");
 const favoritesList = document.getElementById("favoritesList");
-const shareBtn = document.getElementById("shareBtn");
 const copySupportBtn = document.getElementById("copySupportBtn");
 
 let currentMood = null;
@@ -348,104 +347,6 @@ favBtn.onclick = () => {
   favs.push(currentVerse);
   localStorage.setItem("favorites", JSON.stringify(favs));
   renderFavorites();
-};
-
-// ======= Share (Mobile + Facebook) =======
-// ======= Share Menu Logic =======
-const shareModal = document.getElementById("shareModal");
-const closeShareModal = document.getElementById("closeShareModal");
-const shareWhatsApp = document.getElementById("shareWhatsApp");
-const shareTwitter = document.getElementById("shareTwitter");
-const shareFacebook = document.getElementById("shareFacebook");
-const shareStory = document.getElementById("shareStory");
-const shareCopyLink = document.getElementById("shareCopyLink");
-
-shareBtn.onclick = () => {
-  if (!currentVerse) return alert("Pick an emotion first!");
-  shareModal.classList.add("show");
-};
-
-closeShareModal.onclick = () => {
-  shareModal.classList.remove("show");
-};
-
-window.onclick = (event) => {
-  if (event.target == shareModal) {
-    shareModal.classList.remove("show");
-  }
-};
-
-const getShareText = () => {
-  return `${currentVerse.arabic}\n${currentVerse.translation}\n${currentVerse.reference}\n\nSent from Sakinah - Your Heart's Tranquility`;
-};
-
-shareWhatsApp.onclick = () => {
-  const url = `https://wa.me/?text=${encodeURIComponent(getShareText())}`;
-  window.open(url, "_blank");
-};
-
-shareTwitter.onclick = () => {
-  const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(getShareText())}`;
-  window.open(url, "_blank");
-};
-
-shareFacebook.onclick = () => {
-  const url = `https://www.facebook.com/sharer/sharer.php?quote=${encodeURIComponent(getShareText())}&u=${encodeURIComponent(window.location.href)}`;
-  window.open(url, "_blank");
-};
-
-shareStory.onclick = async () => {
-  if (!currentVerse) return;
-
-  const originalBtnText = shareStory.innerHTML;
-  shareStory.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
-  shareStory.disabled = true;
-
-  try {
-    const card = document.querySelector(".verse-card");
-
-    // Create a high-quality capture
-    const canvas = await html2canvas(card, {
-      backgroundColor: "#1a1a1a", // Match card-bg
-      scale: 2, // Retína quality
-      useCORS: true,
-      logging: false,
-      borderRadius: 16
-    });
-
-    const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
-    const file = new File([blob], 'sakinah-verse.png', { type: 'image/png' });
-
-    if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      await navigator.share({
-        files: [file],
-        title: 'Sakinah Verse',
-        text: 'Shared from Sakinah'
-      });
-    } else {
-      // Fallback: Download for desktop
-      const link = document.createElement('a');
-      link.download = `sakinah-${currentMood}.png`;
-      link.href = canvas.toDataURL('image/png');
-      link.click();
-      alert("Image generated! You can now upload it to your Story.");
-    }
-  } catch (err) {
-    console.error("Capture failed:", err);
-    alert("Could not generate image. Try copying text instead!");
-  } finally {
-    shareStory.innerHTML = originalBtnText;
-    shareStory.disabled = false;
-  }
-};
-
-shareCopyLink.onclick = async () => {
-  await navigator.clipboard.writeText(getShareText());
-  const originalText = shareCopyLink.innerText;
-  shareCopyLink.innerText = "Copied!";
-  setTimeout(() => {
-    shareCopyLink.innerText = originalText;
-  }, 2000);
 };
 
 // ======= Copy Support Number =======

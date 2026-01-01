@@ -12,6 +12,10 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- html2canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 
 <body>
@@ -106,6 +110,33 @@
       </div>
     </div>
   </div>
+  </div>
+
+  <!-- Share Menu Modal -->
+  <div id="shareModal" class="modal">
+    <div class="modal-content card">
+      <div class="modal-header">
+        <strong>Share this Verse</strong>
+        <button id="closeShareModal" class="close-btn">&times;</button>
+      </div>
+      <div class="share-options">
+        <button class="share-opt-btn whatsapp" id="shareWhatsApp">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </button>
+        <button class="share-opt-btn twitter" id="shareTwitter">
+          <i class="fab fa-x-twitter"></i> Twitter / X
+        </button>
+        <button class="share-opt-btn facebook" id="shareFacebook">
+          <i class="fab fa-facebook-f"></i> Facebook
+        </button>
+        <button class="share-opt-btn story" id="shareStory">
+          <i class="fas fa-magic"></i> Share Card (Story)
+        </button>
+        <button class="share-opt-btn" id="shareCopyLink">
+          <i class="far fa-copy"></i> Copy Text
+        </button>
+      </div>
+    </div>
   </div>
 
   <!-- JS -->

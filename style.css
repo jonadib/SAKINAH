@@ -235,7 +235,26 @@ header .lead {
   flex-direction: column;
   gap: 12px;
   min-height: 350px;
-  /* Ensure enough height to push controls down */
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.verse-card::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  /* Offset to hide blurred edges */
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background-image: url('quran-bg.png');
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px) brightness(0.6);
+  opacity: 0.7;
+  z-index: -1;
+  transition: opacity 0.5s ease;
 }
 
 .verse-card .arabic {
